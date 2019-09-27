@@ -31,10 +31,6 @@ void insert(TreeNode* head, int value) {
 	return;
 }
 
-void check(int val, int key) {
-
-}
-
 int main(int argc, char* argv[]) {
 	int choice=0;
 	int key = 11;
