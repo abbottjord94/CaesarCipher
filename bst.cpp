@@ -31,17 +31,24 @@ void insert(TreeNode* head, int value) {
 	return;
 }
 
+void checkKey(int current, int key) {
+	if(current > key) {
+		cout << "\nThis node is HIGHER than the key\n";
+	} else if(current < key) {
+		cout << "\nThis node is LOWER than the key\n";
+	}
+}
+
 int main(int argc, char* argv[]) {
 	int choice=0;
-	int key = 11;
+	int key = 12;
 	TreeNode* head = new TreeNode;
 	TreeNode* root = head;
 	head->data = 8;
-	int values[9] = {5,7,10,4,6,13,1,3,9};
-	for(int i=0; i<9; i++) {
+	int values[16] = {11,5,19,7,10,4,15,6,13,12,1,17,3,9,2,14};
+	for(int i=0; i<16; i++) {
 		insert(head, values[i]);
 	}
-	insert(head, key);
 	while(choice != 4) {
 		cout << "Current Node Value: " << head->data << endl;
 		cout << "Enter a choice: \n";
@@ -58,6 +65,7 @@ int main(int argc, char* argv[]) {
 				} else {
 					head = head->left;
 					cout << "NODE FOUND: " << head->data << endl;
+					checkKey(head->data, key);
 				}
 				break;
 			case 2:
@@ -67,11 +75,13 @@ int main(int argc, char* argv[]) {
 				} else {
 					head = head->right;
 					cout << "NODE FOUND: " << head->data << endl;
+					checkKey(head->data, key);
 				}
 				break;
 			case 3:
 				cout << "RESETTING TO TOP NODE\n";
 				head = root;
+				checkKey(head->data, key);
 				break;
 			case 4:
 				exit(1);

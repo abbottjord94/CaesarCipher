@@ -1,4 +1,4 @@
-//C++ Challenge Caesar Cipher encrypt/decrypt
+//C++ Challenge Caesar Cipher Decryption
 
 #include <iostream>
 #include <cstdlib>
@@ -8,9 +8,9 @@
 using namespace std;
 
 string read_file(fstream &infile);
-string encrypt(string msg, int shift);
 string decrypt(string msg, int shift);
 
+//Main function
 int main(int argc, char* argv[]) {
 	string message, decrypted_message;
 	int shift_val = 0;
@@ -26,22 +26,16 @@ int main(int argc, char* argv[]) {
 	return 0;
 }
 
+//Reads in the message.txt file and stores the contents in a string
 string read_file(fstream &infile) {
 	string file_data(std::istreambuf_iterator<char>(infile) ,(std::istreambuf_iterator<char>()));
 	infile.close();
 	return file_data;
 }
 
+//Write your Caesar Cipher decryption function here
+//Remember that only letters are encrypted by the Caesar cipher. Spaces and newlines ('\n') are not
+
 string decrypt(string msg, int shift) {
-	string decrypted_msg;
-	decrypted_msg.resize(msg.size());
-	for(int i=0; i<msg.length(); i++) {
-		decrypted_msg[i] = toupper(msg[i]);
-		if(msg[i] == ' ') {
-			decrypted_msg[i] = msg[i];
-		} else {
-			decrypted_msg[i] = 65+((msg[i] - shift)%26);
-		}
-	}
-	return decrypted_msg;
+
 }
